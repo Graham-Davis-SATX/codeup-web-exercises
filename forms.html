@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register With Us</title>
+    <style>
+        .label {
+            display: inline-block;
+            vertical-align: top;
+        }
+    </style>
+</head>
+<body>
+    <form method="POST" action="http://webhook.site/37345504-d057-49de-8c30-8bf09c40fcfc">
+        <label for="email">Email</label>
+        <input type="text" id="email" name="email" placeholder="Enter your email address"><br>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter a secure password"><br>
+        <p><label for="bio" class="label">Bio</label>
+            <textarea name="bio" id="bio" cols="30" rows="10" placeholder="Enter a short description of yourself"></textarea><br></p>
+        <p>How did you hear about us?<br>
+        <input type="radio" name="referral_question_1" value="billboard">billboard<br>
+        <input type="radio" name="referral_question_1" value="radio">radio advertisement<br>
+        <input type="radio" name="referral_question_1" value="internet">internet advertisement<br>
+        <input type="radio" name="referral_question_1" value="other">other<br>
+        </p>
+        <p>Which web browser do you prefer to use?<br>
+        <select name="web_browser" id="web_browser">
+            <option value="chrome">Gogole Chrome</option>
+            <option value="firefox">Mozilla Firefox</option>
+            <option value="safari">Apple Safari</option>
+            <option value="explorer">Internet Explorer</option>
+        </select>
+        </p>
+        <input type="submit">
+    </form>
+</body>
+</html>
