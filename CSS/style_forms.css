@@ -1,0 +1,8 @@
+body {
+    background-color: #cfd6de;
+}
+
+.form-element {
+    display: inline-block;
+    vertical-align: top;
+}
