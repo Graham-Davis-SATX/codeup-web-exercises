@@ -11,6 +11,9 @@ body {
     background-color: seashell;
     background-image: url("../img/pattern_leaves.png");
     background-repeat: repeat;
+    margin: auto;
+    width: 95%;
+    padding: 10px;
 }
 
 ul>li {
@@ -19,20 +22,6 @@ ul>li {
 
 *{
     box-sizing: border-box;
-}
-
-/* Create three equal columns that floats next to each other */
-.column {
-    float: left;
-    width: 33.33%;
-    padding: 10px;
-}
-
-/* Clear floats after the columns */
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
 }
 
 /* unvisited link */
@@ -55,9 +44,13 @@ a:active {
     color: #0000FF;
 }
 
-table {
+table.center {
     border-collapse: collapse;
-    width: 100%;
+    width: 25%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #ddd;
+    text-align: center;
 }
 
 th, td {
@@ -72,6 +65,23 @@ tr.content:hover {
     font-style: italic;
 }
 
+/*3-column layout*/
+/* Create three equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 33.33%;
+    padding: 10px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+/*Creating Responsive Image Gallery*/
 .responsive {
     padding: 0 6px;
     float: left;
