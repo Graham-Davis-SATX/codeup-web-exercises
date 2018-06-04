@@ -4,9 +4,6 @@ body, html {
     padding: 0 auto;
     margin: 0 auto;
     font-family: Arial, Ubuntu, sans-serif;
-}
-
-:root {
     --info-bg-color: #cedffe;
     --info-text-color: #383391;
     --success-bg-color: #d0f2db;
@@ -17,7 +14,7 @@ body, html {
     --error-text-color: #89273e;
 }
 
-#container {
+.container {
     width: 95%;
     height: auto;
     padding: 10px 0;
