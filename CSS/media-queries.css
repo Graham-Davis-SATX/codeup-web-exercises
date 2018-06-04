@@ -1,0 +1,55 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    max-width: 350px;
+}
+
+.alert-info {
+    width: 100%;
+
+}
+
+.hidden-on-desktop {
+
+}
+
+.nav-links {
+
+}
+
+li {
+    list-style-type: none;
+    width: 100%;
+    background-color: lightgrey;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    position: relative;
+    float: left;
+
+}
+
+div>.header-img {
+    width: 100%;
+}
+
+
+.main {
+
+}
+
+.sub-section {
+
+}
+
+#main {
+
+}
+
+
+
+@media screen and (min-width:350px) {
+
+}
