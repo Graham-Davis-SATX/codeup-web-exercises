@@ -6,28 +6,22 @@ box-sizing: border-box;
 
 /* Style the body */
 html, body {
-    width: 100%;
-    height: 100%;
-    margin: 5px;
-    padding: 0 10px;
-    font-family: Arial;
-}
-
-img {
-    width: 100%;
+    width: 95%;
+    height: auto;
+    font-family: 'Lato', sans-serif;
 }
 
 h1 {
     text-align: center;
 }
 
-.alert-info {
-    text-align: center;
+footer {
+    padding-top: 20px;
+    border: 5px solid red;
+}
+
+div.header-img img{
     width: 100%;
-    /*margin: auto;*/
-    padding: 15px;
-    border: 1px solid lightgrey;
-    background-color: #ceffff;
 }
 
 .alert-info > a {
@@ -35,23 +29,97 @@ h1 {
     color: #333333;
 }
 
-nav > ul {
+.alert-info {
+    text-align: center;
+    width: 100%;
+    padding: 15px;
+    border: 1px solid lightgrey;
+    background-color: #ceffff;
+}
+
+.main {
+    padding: 10px 0;
+}
+
+footer p {
+    float: left;
+}
+
+#social-media-links ul {
     width: 100%;
     margin: 0;
     padding: 0;
+    display: inline-block;
 }
 
-.nav-links > li {
-    text-align: center;
+#social-media-links li {
     list-style-type: none;
-    margin: 10px 0;
-    padding: 15px 0;
-    background-color: lightgrey;
+    padding: 5px;
+    float: right;
 }
 
-/* If the screen size is 350px wide or more, hide the element */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* If the screen size is 350px or smaller, apply the following styling to the nav links*/
+@media only screen and (max-width: 350px) {
+    nav > ul {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-links > li {
+        text-align: center;
+        list-style-type: none;
+        margin: 10px 0;
+        padding: 15px 0;
+        background-color: lightgrey;
+    }
+}
+
 @media only screen and (min-width: 350px) {
-    div.hidden-on-desktop {
+    div.hidden-on-desktop { /* If the screen size is 350px wide or more, hide the element */
         display: none;
+    }
+
+    .header-img {
+        content: url("http://via.placeholder.com/890x385");
+        width: 100%;
+    }
+
+    .main { /* creating two columns when screen size is 350px of more */
+        float: left;
+        width: 66%;
+        padding-right: 50px;
+    }
+
+    .sub-section {
+        float: left;
+        width: 33%;
+        padding: inherit;
+    }
+
+
+    #main:after { /* Clear floats after the columns */
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    nav > ul { /* mving the nav bar when the screen size is >350px */
+        width: 100%;
+        text-align: right;
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+    }
+
+    .nav-links > li {
+        display: inline-block;
+        margin: 10px;
     }
 }
