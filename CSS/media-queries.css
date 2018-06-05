@@ -1,10 +1,7 @@
 * {
 box-sizing: border-box;
-    /*border: 1px solid red;*/
-
 }
 
-/* Style the body */
 html, body {
     width: 95%;
     height: auto;
@@ -17,24 +14,21 @@ h1 {
 
 footer {
     padding-top: 20px;
-    border: 5px solid red;
 }
 
 div.header-img img{
     width: 100%;
 }
 
-.alert-info > a {
-    text-decoration: none;
-    color: #333333;
-}
-
-.alert-info {
-    text-align: center;
-    width: 100%;
-    padding: 15px;
-    border: 1px solid lightgrey;
+.alert-info a {
     background-color: #ceffff;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    padding: 15px;
+    border: 2px solid rgb(193 193 193);
+    /*content: url("#main");*/
 }
 
 .main {
@@ -64,23 +58,34 @@ footer p {
     display: table;
 }
 
-/* If the screen size is 350px or smaller, apply the following styling to the nav links*/
+.sub-section {
+    font-style: italic;
+}
+
+/* mobile view */
 @media only screen and (max-width: 350px) {
+
+    h1 {
+        text-align: center;
+    }
     nav > ul {
         width: 100%;
         margin: 0;
         padding: 0;
     }
 
-    .nav-links > li {
+    .nav-links a {
+        display: block;
         text-align: center;
         list-style-type: none;
-        margin: 10px 0;
+        margin-bottom: 10px;
         padding: 15px 0;
         background-color: lightgrey;
+        text-decoration: none;
     }
 }
 
+/* desktop view*/
 @media only screen and (min-width: 350px) {
     div.hidden-on-desktop { /* If the screen size is 350px wide or more, hide the element */
         display: none;
@@ -93,12 +98,14 @@ footer p {
 
     .main { /* creating two columns when screen size is 350px of more */
         float: left;
+        box-sizing: border-box;
         width: 66%;
         padding-right: 50px;
     }
 
     .sub-section {
         float: left;
+        box-sizing: border-box;
         width: 33%;
         padding: inherit;
     }
@@ -123,3 +130,4 @@ footer p {
         margin: 10px;
     }
 }
+
