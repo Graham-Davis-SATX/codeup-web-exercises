@@ -1,56 +1,57 @@
 * {
-    box-sizing: border-box;
-    border: 1px solid red;
+box-sizing: border-box;
+    /*border: 1px solid red;*/
+
 }
 
+/* Style the body */
 html, body {
-    max-width: 350px;
+    width: 100%;
+    height: 100%;
+    margin: 5px;
+    padding: 0 10px;
+    font-family: Arial;
+}
+
+img {
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
 }
 
 .alert-info {
-    width: 100%;
-
-}
-
-.hidden-on-desktop {
-
-}
-
-.nav-links {
-
-}
-
-li {
-    list-style-type: none;
-    width: 100%;
-    background-color: lightgrey;
-    padding: 10px;
-    margin: 10px;
     text-align: center;
-    position: relative;
-    float: left;
-
-}
-
-div>.header-img {
     width: 100%;
+    /*margin: auto;*/
+    padding: 15px;
+    border: 1px solid lightgrey;
+    background-color: #ceffff;
 }
 
-
-.main {
-
+.alert-info > a {
+    text-decoration: none;
+    color: #333333;
 }
 
-.sub-section {
-
+nav > ul {
+    width: 100%;
+    margin: 0;
+    padding: 0;
 }
 
-#main {
-
+.nav-links > li {
+    text-align: center;
+    list-style-type: none;
+    margin: 10px 0;
+    padding: 15px 0;
+    background-color: lightgrey;
 }
 
-
-
-@media screen and (min-width:350px) {
-
+/* If the screen size is 350px wide or more, hide the element */
+@media only screen and (min-width: 350px) {
+    div.hidden-on-desktop {
+        display: none;
+    }
 }
