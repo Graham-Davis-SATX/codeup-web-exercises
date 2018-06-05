@@ -1,6 +1,7 @@
 /*mobile view*/
 
 body {
+    margin: 0 auto;
     margin: 20px;
     font-family: 'Lato', sans-serif;
     position: relative;

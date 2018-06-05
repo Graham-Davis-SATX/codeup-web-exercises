@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Grid</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: papayawhip;
+        }
+
+        .container {
+            background-color: chartreuse;
+            width: 80%;
+            margin: 0 auto;
+            height: 100vh;
+            max-width: 1200px;
+        }
+
+        .row {
+            width: 100%;
+            /*border: 1px solid red;*/
+        }
+
+        .column {
+            float: left;
+            /*border: 1px solid yellow;*/
+        }
+
+        .one-third {
+            width: 33.33%;
+        }
+
+        .one-half {
+            width: 50%;
+        }
+
+
+    </style>
+</head>
+<body>
+    <h1>3x3</h1>
+        <div class="row">
+            <div class="column one-third">First Name</div>
+            <div class="column one-third">Last Name</div>
+            <div class="column one-third">Age</div>
+        </div>
+        <div class="row">
+            <div class="column one-third">First Name</div>
+            <div class="column one-third">Last Name</div>
+            <div class="column one-third">Age</div>
+        </div>
+        <div class="row">
+            <div class="column one-third">First Name</div>
+            <div class="column one-third">Last Name</div>
+            <div class="column one-third">Age</div>
+        </div>
+        <div class="row">
+            <div class="column one-third">First Name</div>
+            <div class="column one-third">Last Name</div>
+            <div class="column one-third">Age</div>
+        </div>
+
+    <!--2x2-->
+    <h1>2x2</h1>
+        <div class="row">
+            <div class="column one-half">One Half</div>
+            <div class="column one-half">My other Half</div>
+        </div>
+        <div class="row">
+            <div class="column one-half">One Half</div>
+            <div class="column one-half">My other Half</div>
+        </div>
+</body>
+</html>
+<!--div.row*3-->
