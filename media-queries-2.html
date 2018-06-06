@@ -1,40 +1,54 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Media Queries - 2</title>
-    <link rel="stylesheet" href="css/media-queries-2.css">
-</head>
-<body>
-<div class="alert-info hidden-on-desktop">
-    <a href="#main">Skip to main content</a>
-</div>
-<h1>Company</h1>
-<nav>
-    <ul class="nav-links">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Work</a></li>
-        <li><a href="#">Contact</a></li>
-    </ul>
-</nav>
-<div class="header-img">
-    <img src="http://via.placeholder.com/900x400" alt="">
-</div>
-<section id="main" class="main">
-    <h2>Main Section</h2>
-    <p>Amet lorem accusantium maxime quis iusto. Sit aliquid quidem at animi commodi, iusto harum, non. Accusantium sequi consectetur deleniti soluta tempora. Maxime maiores blanditiis veritatis vitae amet maiores sapiente in?</p>
-</section>
-<section class="sub-section">
-    <h2>Sub-section</h2>
-    <p>Amet optio quidem voluptatum neque esse at saepe, reiciendis quaerat architecto unde minima aspernatur harum cum totam non amet soluta. Ea quae odio harum magni ab vitae tenetur. Itaque numquam!</p>
-</section>
-<footer>
-    <p>(c) 2017 All rights reserved</p>
-    <div id="social-media-links">
+    <head>
+        <meta charset="UTF-8">
+        <title>Media Queries - 2</title>
+        <link rel="stylesheet" href="css/media-queries-2.css">
+        <link rel="stylesheet" href="css/grid-layout.css">
+    </head>
+    <body>
+    <main class="container">
+        <div class="alert-info hidden-on-desktop">
+            <a href="#main">Skip to main content</a>
+        </div>
+        <h1>Company</h1>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Work</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="header-img">
+            <img class="full" src="http://via.placeholder.com/900x400" alt="">
+        </div>
+             <div class="row">
+                <div class="column two-thirds">
+                    <section id="main" class="main">
+                        <h2>Main Section</h2>
+                        <p>Amet lorem accusantium maxime quis iusto. Sit aliquid quidem at animi commodi, iusto harum, non. Accusantium sequi consectetur deleniti soluta tempora. Maxime maiores blanditiis veritatis vitae amet maiores sapiente in?</p>
+                    </section>
+                </div>
+                <div class="column one-third">
+                    <section class="sub-section">
+                        <h2>Sub-section</h2>
+                        <p>Amet optio quidem voluptatum neque esse at saepe, reiciendis quaerat architecto unde minima aspernatur harum cum totam non amet soluta. Ea quae odio harum magni ab vitae tenetur. Itaque numquam!</p>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="container">
+        <p>(c) 2017 All rights reserved</p>
+        <div id="social-media-links">
+            <a href="#"><img src="img/facebook.png"></a>
+            <a href="#"><img src="img/twitter.png" </a>
+            <a href="#"><img src="img/insta.png"></a>
+        </div>
 
-    </div>
-</footer>
-</body>
+        </div>
+    </footer>
+    </body>
 </html>

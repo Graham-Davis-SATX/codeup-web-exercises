@@ -1,6 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    /*background-color: #cedffe;*/
+}
+
 .bg {
     padding: 10px;
     margin: 5px 0;
     border: 1px solid black;
     background-color: lightgrey;
 }
+
+/*@media screen and (max-width: 768px) {*/
+    /*.one-third,*/
+    /*.one-half {*/
+        /*width: 100%;*/
+    /*}*/
+/*}*/
