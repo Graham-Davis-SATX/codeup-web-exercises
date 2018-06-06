@@ -62,10 +62,9 @@ html, body {
     width: 8.33%;
 }
 
-
-/*@media screen and (max-width: 768px) {*/
-    /*.column.one-third,*/
-    /*.column.one-half {*/
-        /*width: 100%;*/
-    /*}*/
-/*}*/
+@media screen and (max-width: 768px) {
+    .column.one-third,
+    .column.one-half {
+        width: 100%;
+    }
+}

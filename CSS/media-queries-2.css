@@ -44,6 +44,10 @@ div.header-img img {
     font-style: italic;
 }
 
+footer {
+    margin-top: 100px;
+}
+
 /*social media links*/
 
 
@@ -51,5 +55,52 @@ div.header-img img {
 
 /*desktop view*/
 @media screen and (min-width: 768px) {
+    h1 {
+        float: left;
+    }
 
+    .hidden-on-desktop {
+        display: none;
+    }
+
+    .nav-links {
+        float: right;
+        position: absolute;
+        margin: 0;
+        right: 0;
+        top: 40px;
+    }
+
+    .nav-links li {
+        display: inline-block;
+        margin-left: 20px;
+    }
+
+    .nav-links li a {
+        padding: 0;
+        margin: 0;
+        background: inherit;
+        display: inline-block;
+    }
+
+    section {
+        float: left;
+        padding: 0 10px;
+    }
+
+    .sub-section {
+        width: 33.33%;
+        box-sizing: border-box;
+    }
+
+    .main {
+        width: 66.66%;
+        padding: 0;
+        padding-right: 2em;
+        box-sizing: border-box;
+    }
+
+    footer {
+        margin-top: 300px;
+    }
 }
