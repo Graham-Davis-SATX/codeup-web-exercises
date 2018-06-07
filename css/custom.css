@@ -2,13 +2,14 @@
     /*border: 2px solid red;*/
 }
 
+.jumboHeaderImg {
+    background-image: url("../img/pizza.png");
+    width: 100%;
+    height: auto;
+}
+
 div.jumbotron h1 {
-    text-align: center;
     background-color: rgba(251, 251, 251, .8);
-    /*border: 2px solid red;*/
-    /*position: absolute;*/
-    /*margin-left: 0;*/
-    /*margin-right: 0;*/
 }
 
 
