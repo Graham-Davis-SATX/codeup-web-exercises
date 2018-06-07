@@ -77,7 +77,7 @@ footer p {
     }
 
     .nav-links {
-        float: right;
+        float: left;
         margin: 0;
         right: 0;
         margin-top: 40px;
