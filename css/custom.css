@@ -4,6 +4,7 @@
 
 .jumboHeaderImg {
     background-image: url("../img/pizza.png");
+    background-size: cover;
     width: 100%;
     height: auto;
 }
@@ -11,5 +12,15 @@
 div.jumbotron h1 {
     background-color: rgba(251, 251, 251, .8);
 }
+li img {
+    width: 30px;
+    height: 30px;
+    margin-right: 7px;
+}
 
-
+.tab-1-header {
+    background-color: #daedf6;
+    color: #6591f6;
+    margin-bottom: 15px;
+    padding: 10px;
+}

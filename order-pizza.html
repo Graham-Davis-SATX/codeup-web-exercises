@@ -17,8 +17,8 @@
     <title>Hello, world!</title>
 </head>
 <body>
-<div class="container">
-    <nav class="navbar navbar-expand-md navbar-light bg-light">
+<div class="container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <span class="navbar-brand my-auto h1">Pizza World</span>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
@@ -47,27 +47,28 @@
         </div>
     </nav>
 
-    <div class="jumbotron jumbotron-fluid jumboHeaderImg">
+    <div class="jumbotron jumbotron-fluid m-0 jumboHeaderImg">
         <h1 class="text-center">Welcome to Pizza World</h1>
     </div>
 
-    <div class="container pl-0">
+    <div class="container-fluid pl-0 my-4">
         <h2>Build your own pizza!</h2>
     </div>
 
+    <hr>
 
     <!-- Nav tabs -->
-    <div class="container pl-0">
-        <nav class="nav flex-column flex-sm-row">
+    <div class="container-fluid pl-0">
+        <nav class="nav">
             <ul class="nav nav-tabs">
                 <li class="nav-item">
-                    <a class="nav-link active" href="#size-crust" data-toggle="tab">Size and Crust</a>
+                    <a class="nav-link active" href="#size-crust" data-toggle="tab"><img src="img/glass_numbers_1.png" alt="number 1">Size and Crust</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#cheese-sauce" data-toggle="tab">Cheese and Sauce</a>
+                    <a class="nav-link" href="#cheese-sauce" data-toggle="tab"><img src="img/glass_numbers_2.png" alt="">Cheese and Sauce</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="#toppings" data-toggle="tab">Toppings</a>
+                <a class="nav-link" href="#toppings" data-toggle="tab"><img src="img/glass_numbers_3.png" alt="">Toppings</a>
                 </li>
 
             </ul>
@@ -75,9 +76,15 @@
 
         <!-- Tab panes -->
         <div class="tab-content">
-            <div class="tab-pane active" id="size-crust" role="tabpanel">more text</div>
-            <div class="tab-pane" id="cheese-sauce" role="tabpanel">even more text</div>
-            <div class="tab-pane" id="toppings" role="tabpanel">even more more text</div>
+            <div class="tab-pane active" id="size-crust" role="tabpanel">
+                textyness
+            </div>
+            <div class="tab-pane" id="cheese-sauce" role="tabpanel">
+                even more text
+            </div>
+            <div class="tab-pane" id="toppings" role="tabpanel">
+                even more more text
+            </div>
         </div>
     </div>
 
