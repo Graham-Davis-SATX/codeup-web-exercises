@@ -11,19 +11,19 @@
     // You have rented some movies for your kids: The little mermaid (for 3 days), Brother Bear (for 5 days, they love it), and Hercules (1 day, you don't know yet if they're going to like it). If price for a movie per day is $3, how much will you have to pay?
 
 
-            // alert('Let\'s find out how much your movie rentals are going to cost you');
-            // var rentalPerDayDollars = 3;
-            // var littleMermaidDays = prompt('How many days did you rent the Little Mermaid?');
-            // var brotherBearDays = prompt('How many days did you rent Brother Bear for?');
-            // var herculesDays = prompt('How many days did you rent Hercules for?');
-            //
-            // var totalRentalCost;
-            //
-            // totalRentalCost = (parseInt(littleMermaidDays) + parseInt(brotherBearDays) + parseInt(herculesDays)) * parseInt(rentalPerDayDollars);
-            //
-            // console.log('The cost to the customer is $' + totalRentalCost.toFixed(2));
-            //
-            // alert('Your movie rentals will cost you $' + totalRentalCost.toFixed(2) + ' total! \nHave a nice day!');
+            alert('Let\'s find out how much your movie rentals are going to cost you');
+            var rentalPerDayDollars = 3;
+            var littleMermaidDays = prompt('How many days did you rent the Little Mermaid?');
+            var brotherBearDays = prompt('How many days did you rent Brother Bear for?');
+            var herculesDays = prompt('How many days did you rent Hercules for?');
+
+            var totalRentalCost;
+
+            totalRentalCost = (parseInt(littleMermaidDays) + parseInt(brotherBearDays) + parseInt(herculesDays)) * parseInt(rentalPerDayDollars);
+
+            console.log('The cost to the customer is $' + totalRentalCost.toFixed(2));
+
+            alert('Your movie rentals will cost you $' + totalRentalCost.toFixed(2) + ' total! \nHave a nice day!');
 
 
 
