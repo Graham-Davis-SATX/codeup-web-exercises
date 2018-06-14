@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Function Warmup</title>
+</head>
+<body>
+
+<script>
+    function makeUsername(firstName, age) { //declare the function
+       return (firstName.length.toString()) + (firstName.charAt(0).toLowerCase()) + (age); //return the number of letters in user's first name, the first letter of users first name, and user's age
+    }
+
+    var username = makeUsername(prompt('Please enter your first name:'), prompt('Please enter your age:')); // new variable, request user to enter their name and age
+    alert('Your username is: ' + username); // tell the user what their generated username is.
+
+    console.log(username);
+
+
+    function makePassword(lastName, fourDigitPin) {
+        return (lastName.length.toString()) + (lastName.charAt(0).toLowerCase()) + (fourDigitPin);
+    }
+
+    var password = makePassword(prompt('Enter your last name:'), prompt('Please enter a 4-digit pin that only you know'));
+    alert('Your password has been set');
+    console.log(password);
+
+</script>
+</body>
+</html>
