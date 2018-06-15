@@ -17,36 +17,36 @@
  */
 
 
-var willEnterNum = confirm("Confirm you will enter a number");
-// console.log(willEnterNum);
-
-if (willEnterNum) {
-
-    var userNum = prompt("Please enter a number!");
-
-    if (!isNaN(userNum) && userNum !== true && userNum !== false) {
-
-        userNum = parseFloat(userNum)
-
-        var evenOddMessage;
-
-        if (userNum % 2 === 0) {
-            evenOddMessage = "Number is even";
-        } else {
-            evenOddMessage = "Number is odd";
-        }
-        alert(evenOddMessage);
-
-        alert("The number plus 100: " + (userNum + 100));
-
-        var posNegMessage = (userNum >= 0) ? "Number is positive" : "Number is negative";
-
-        alert(posNegMessage);
-        
-    } else {
-        alert("Input was note a valid number");
-    }
-}
+// var willEnterNum = confirm("Confirm you will enter a number");
+// // console.log(willEnterNum);
+//
+// if (willEnterNum) {
+//
+//     var userNum = prompt("Please enter a number!");
+//
+//     if (!isNaN(userNum) && userNum !== true && userNum !== false) {
+//
+//         userNum = parseFloat(userNum)
+//
+//         var evenOddMessage;
+//
+//         if (userNum % 2 === 0) {
+//             evenOddMessage = "Number is even";
+//         } else {
+//             evenOddMessage = "Number is odd";
+//         }
+//         alert(evenOddMessage);
+//
+//         alert("The number plus 100: " + (userNum + 100));
+//
+//         var posNegMessage = (userNum >= 0) ? "Number is positive" : "Number is negative";
+//
+//         alert(posNegMessage);
+//
+//     } else {
+//         alert("Input was note a valid number");
+//     }
+// }
 
 /* ########################################################################## */
 
@@ -68,6 +68,28 @@ if (willEnterNum) {
  * console.logging the function's return value
  */
 
+function analyzeColor(color) {
+
+    if (color === 'red') {
+        return color + ' means stop!';
+    } else if (color === 'yellow') {
+        return color + ' means speed up and check for cops';
+    } else if (color === 'orange') {
+        return color + ' you glad I didn\'t say banana?';
+    } else if (color === 'green') {
+        return color + ' grass grows';
+    } else if (color === 'blue') {
+        return color + ' skies and warm beaches';
+    } else if (color === 'indigo') {
+        return color + ' - what the hell is that?';
+    } else {
+        return 'is ' + color + ' reeeeally an actual color?'
+    }
+}
+
+console.log(analyzeColor('blue'));
+console.log(analyzeColor('reddish'));
+
 // Don't change the next two lines!
 // These lines create two variables for you:
 // - `colors`: a list of the colors of the rainbow
@@ -81,10 +103,14 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * You should see a different message everytime you refresh the page
  */
 
+console.log(analyzeColor(randomColor));
+
 /**
  * TODO:
  * Refactor your above function to use a switch-case statement
  */
+
+
 
 /**
  * TODO:
