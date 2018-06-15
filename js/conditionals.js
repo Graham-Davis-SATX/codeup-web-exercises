@@ -120,30 +120,37 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * Refactor your above function to use a switch-case statement
  */
 
-// switch (aColorName) {
-//     case 'red':
-//         console.log("Not all fire extinguishers are red.");
-//         break;
-//     case 'orange':
-//         console.log("Orange you glad I didn\'t say banana?");
-//         break;
-//     case 'yellow':
-//         console.log("Most school buses are yellow because they are easy to see.");
-//         break;
-//     case 'green':
-//         console.log("The grass isn't always greener on the other side.");
-//         break;
-//     case 'blue':
-//         console.log("Not all shades of blue are created equal.");
-//         break;
-//     default:
-//         console.log("I do not know anything by that color.");
-//         break;
-// }
-// analyzeColor(randomColor);
-// console.log(randomColor);
-//
-//
+
+        function analyzeColor(color) {
+        var result;
+            switch (color) {
+                case 'red':
+                    result = "Not all fire extinguishers are " + color + ".";
+                    break;
+                case 'orange':
+                    result = color + " you glad I didn\'t say banana?";
+                    break;
+                case 'yellow':
+                    result = "Most school buses are " + color + " because they are easy to see.";
+                    break;
+                case 'green':
+                    result = "The " + color + " isn't always greener on the other side.";
+                    break;
+                case 'blue':
+                    result = "Not all shades of " + color + " are created equal.";
+                    break;
+                default:
+                    result = "I do not know anything by that color.";
+                    break;
+            }
+        return result;
+        }
+
+
+        console.log(analyzeColor(randomColor));
+        console.log(randomColor);
+
+
 
 /* ########################################################################## */
 
@@ -167,37 +174,34 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * return value.
  */
 
-function calculateTotal(luckyNumber, total) {
-    var discountedPrice;
-
-    switch (luckyNumber) {
-        case 0:
-            discountedPrice = total;
-            break;
-        case 1:
-            discountedPrice = total * (0.9);
-            break;
-        case 2:
-            discountedPrice = total * (0.75);
-            break;
-        case 3:
-            discountedPrice = total * (0.65);
-            break;
-        case 4:
-            discountedPrice = total * (0.5);
-            break;
-        case 5:
-            discountedPrice = 0;
-            break;
-        default:
-            discountedPrice = 'Invalid lucky number!';
-    }
-
-    return discountedPrice;
-}
-
-
-
+    // function calculateTotal(luckyNumber, total) {
+    //     var discountedPrice;
+    //
+    //     switch (luckyNumber) {
+    //         case 0:
+    //             discountedPrice = total;
+    //             break;
+    //         case 1:
+    //             discountedPrice = total * (0.9);
+    //             break;
+    //         case 2:
+    //             discountedPrice = total * (0.75);
+    //             break;
+    //         case 3:
+    //             discountedPrice = total * (0.65);
+    //             break;
+    //         case 4:
+    //             discountedPrice = total * (0.5);
+    //             break;
+    //         case 5:
+    //             discountedPrice = 0;
+    //             break;
+    //         default:
+    //             discountedPrice = 'Invalid lucky number!';
+    //     }
+    //
+    //     return discountedPrice;
+    // }
 
 
 /**
@@ -208,14 +212,14 @@ function calculateTotal(luckyNumber, total) {
  * price before the discount was, and what their price after the discount is.
  */
 // Generate a random number between 0 and 6
-    function getRnd() {
-    return Math.floor(Math.random() * 6);
-}
-
-var luckyNumber = getRnd();
-
-console.log(luckyNumber);
-console.log(calculateTotal(luckyNumber, 100));
-
-console.log(luckyNumber);
-console.log(calculateTotal(luckyNumber, 200));
+//     function getRnd() {
+//     return Math.floor(Math.random() * 6);
+//     }
+//
+//     var luckyNumber = getRnd();
+//
+//     console.log(luckyNumber);
+//     console.log(calculateTotal(luckyNumber, 100));
+//
+//     console.log(luckyNumber);
+//     console.log(calculateTotal(luckyNumber, 200));
