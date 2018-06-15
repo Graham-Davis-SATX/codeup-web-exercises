@@ -16,37 +16,37 @@
  * Can you refactor your code to use functions?
  */
 
-var enterNumber = confirm("Would you like to enter a number?");
-
-if (enterNumber) {
-    var someNumber = prompt('Alright, enter your number:');
-} else {
-    alert('Bye Felicia!');
-}
-console.log(parseInt(someNumber));
-
-function alertEvenOddMessage(someNumber) {
-    if (someNumber % 2 === 0) {
-        alert(someNumber + " is an even number");
-    } else {
-        alert(someNumber + " is an odd number");
-    }
-}
-alertEvenOddMessage(someNumber);
-
-
-var plusOneHundred = (parseInt(someNumber) + 100);
-alert('Adding one hundred to ' + someNumber + ' would equal ' + plusOneHundred);
-console.log(plusOneHundred);
-
-var sign = someNumber > 0 ? 1 : someNumber === 0 ? 0 : -1;
-
-if (sign >= 1){
-    alert(someNumber + ' is a positive number!');}
-else if (sign === 0){
-    alert('Hey, ' + someNumber + ' is a neutral number - cheater!');}
-else if (sign <= -1){
-    alert('Wow, ' + someNumber + ' is a negative number');}
+    // var enterNumber = confirm("Would you like to enter a number?");
+    //
+    // if (enterNumber) {
+    //     var someNumber = prompt('Alright, enter your number:');
+    // } else {
+    //     alert('Bye Felicia!');
+    // }
+    // console.log(parseInt(someNumber));
+    //
+    // function alertEvenOddMessage(someNumber) {
+    //     if (someNumber % 2 === 0) {
+    //         alert(someNumber + " is an even number");
+    //     } else {
+    //         alert(someNumber + " is an odd number");
+    //     }
+    // }
+    // alertEvenOddMessage(someNumber);
+    //
+    //
+    // var plusOneHundred = (parseInt(someNumber) + 100);
+    // alert('Adding one hundred to ' + someNumber + ' would equal ' + plusOneHundred);
+    // console.log(plusOneHundred);
+    //
+    // var sign = someNumber > 0 ? 1 : someNumber === 0 ? 0 : -1;
+    //
+    // if (sign >= 1){
+    //     alert(someNumber + ' is a positive number!');}
+    // else if (sign === 0){
+    //     alert('Hey, ' + someNumber + ' is a neutral number - cheater!');}
+    // else if (sign <= -1){
+    //     alert('Wow, ' + someNumber + ' is a negative number');}
 
 
 /* ########################################################################## */
@@ -76,31 +76,34 @@ else if (sign <= -1){
 var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
 var randomColor = colors[Math.floor(Math.random() * colors.length)];
 
-var userColorChoice = prompt('Type a color - any color - and see what happens!');
+        // function analyzeColor(color) {
+        //     if (color === 'red') {
+        //         return color + ' means stop!';
+        //     } else if (color === 'yellow') {
+        //         return color + ' means speed up and check for cops';
+        //     } else if (color === 'orange') {
+        //         return color + ' you glad I didn\'t say banana?';
+        //     } else if (color === 'green') {
+        //         return color + ' grass grows';
+        //     } else if (color === 'blue') {
+        //         return color + ' skies and warm beaches';
+        //     } else if (color === 'indigo') {
+        //         return color + ' - what the hell is that?';
+        //     } else {
+        //         return 'is ' + color + ' reeeeally an actual color?'
+        //     }
+        // }
 
-function analyzeColor(aColorName) {
-    if (aColorName === 'red') {
-        console.log("Not all fire extinguishers are red.");
-    } else if (aColorName === 'orange') {
-        console.log("Orange you glad I didn\'t say banana?");
-    } else if (aColorName === 'yellow') {
-        console.log("Most school buses are yellow because they are easy to see.");
-    } else if (aColorName === 'green') {
-        console.log("The grass isn't always greener on the other side.");
-    } else if (aColorName === 'blue') {
-        console.log("Not all shades of blue are created equal.");
-    } else {
-        console.log("I do not know anything by that color.");
-    }
-}
+    // console.log(analyzeColor('blue'));
+    // console.log(analyzeColor('reddish'));
 
 /**
  * TODO:
  * Pass the `randomColor` variable to your function and console.log the results.
  * You should see a different message everytime you refresh the page
  */
-console.log('The wizard selected ' + randomColor);
-analyzeColor(randomColor);
+    // console.log(analyzeColor(randomColor));
+
 
 /**
  * TODO:
@@ -108,40 +111,39 @@ analyzeColor(randomColor);
  * user to your `analyzeColor` function. Alert the return value from your
  * function to show it to the user.
  */
-console.log('The user entered ' + userColorChoice);
-
-
+    // var usersColor = prompt('Give me a color');
+    // console.log(usersColor);
+    // console.log(analyzeColor(usersColor));
+    //
 /**
  * TODO:
  * Refactor your above function to use a switch-case statement
  */
 
-function analyzeColor(aColorName) {
-    switch (aColorName) {
-        case 'red':
-            console.log("Not all fire extinguishers are red.");
-            break;
-        case 'orange':
-            console.log("Orange you glad I didn\'t say banana?");
-            break;
-        case 'yellow':
-            console.log("Most school buses are yellow because they are easy to see.");
-            break;
-        case 'green':
-            console.log("The grass isn't always greener on the other side.");
-            break;
-        case 'blue':
-            console.log("Not all shades of blue are created equal.");
-            break;
-        default:
-            console.log("I do not know anything by that color.");
-            break;
-    }
-}
-analyzeColor(randomColor);
-console.log(randomColor);
-
-
+// switch (aColorName) {
+//     case 'red':
+//         console.log("Not all fire extinguishers are red.");
+//         break;
+//     case 'orange':
+//         console.log("Orange you glad I didn\'t say banana?");
+//         break;
+//     case 'yellow':
+//         console.log("Most school buses are yellow because they are easy to see.");
+//         break;
+//     case 'green':
+//         console.log("The grass isn't always greener on the other side.");
+//         break;
+//     case 'blue':
+//         console.log("Not all shades of blue are created equal.");
+//         break;
+//     default:
+//         console.log("I do not know anything by that color.");
+//         break;
+// }
+// analyzeColor(randomColor);
+// console.log(randomColor);
+//
+//
 
 /* ########################################################################## */
 
@@ -165,6 +167,39 @@ console.log(randomColor);
  * return value.
  */
 
+function calculateTotal(luckyNumber, total) {
+    var discountedPrice;
+
+    switch (luckyNumber) {
+        case 0:
+            discountedPrice = total;
+            break;
+        case 1:
+            discountedPrice = total * (0.9);
+            break;
+        case 2:
+            discountedPrice = total * (0.75);
+            break;
+        case 3:
+            discountedPrice = total * (0.65);
+            break;
+        case 4:
+            discountedPrice = total * (0.5);
+            break;
+        case 5:
+            discountedPrice = 0;
+            break;
+        default:
+            discountedPrice = 'Invalid lucky number!';
+    }
+
+    return discountedPrice;
+}
+
+
+
+
+
 /**
  * TODO:
  * Uncomment the line below to generate a random number between 0 and 6.
@@ -173,4 +208,14 @@ console.log(randomColor);
  * price before the discount was, and what their price after the discount is.
  */
 // Generate a random number between 0 and 6
-// var luckyNumber = Math.floor(Math.random() * 6);
+    function getRnd() {
+    return Math.floor(Math.random() * 6);
+}
+
+var luckyNumber = getRnd();
+
+console.log(luckyNumber);
+console.log(calculateTotal(luckyNumber, 100));
+
+console.log(luckyNumber);
+console.log(calculateTotal(luckyNumber, 200));

@@ -68,27 +68,27 @@
  * console.logging the function's return value
  */
 
-function analyzeColor(color) {
-
-    if (color === 'red') {
-        return color + ' means stop!';
-    } else if (color === 'yellow') {
-        return color + ' means speed up and check for cops';
-    } else if (color === 'orange') {
-        return color + ' you glad I didn\'t say banana?';
-    } else if (color === 'green') {
-        return color + ' grass grows';
-    } else if (color === 'blue') {
-        return color + ' skies and warm beaches';
-    } else if (color === 'indigo') {
-        return color + ' - what the hell is that?';
-    } else {
-        return 'is ' + color + ' reeeeally an actual color?'
-    }
-}
-
-console.log(analyzeColor('blue'));
-console.log(analyzeColor('reddish'));
+// function analyzeColor(color) {
+//
+//     if (color === 'red') {
+//         return color + ' means stop!';
+//     } else if (color === 'yellow') {
+//         return color + ' means speed up and check for cops';
+//     } else if (color === 'orange') {
+//         return color + ' you glad I didn\'t say banana?';
+//     } else if (color === 'green') {
+//         return color + ' grass grows';
+//     } else if (color === 'blue') {
+//         return color + ' skies and warm beaches';
+//     } else if (color === 'indigo') {
+//         return color + ' - what the hell is that?';
+//     } else {
+//         return 'is ' + color + ' reeeeally an actual color?'
+//     }
+// }
+//
+// console.log(analyzeColor('blue'));
+// console.log(analyzeColor('reddish'));
 
 // Don't change the next two lines!
 // These lines create two variables for you:
@@ -103,7 +103,7 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * You should see a different message everytime you refresh the page
  */
 
-console.log(analyzeColor(randomColor));
+// console.log(analyzeColor(randomColor));
 
 /**
  * TODO:
@@ -111,6 +111,30 @@ console.log(analyzeColor(randomColor));
  */
 
 
+function analyzeColor(aColorName) {
+    switch (aColorName) {
+        case 'red':
+            console.log("Not all fire extinguishers are red.");
+            break;
+        case 'orange':
+            console.log("Orange you glad I didn\'t say banana?");
+            break;
+        case 'yellow':
+            console.log("Most school buses are yellow because they are easy to see.");
+            break;
+        case 'green':
+            console.log("The grass isn't always greener on the other side.");
+            break;
+        case 'blue':
+            console.log("Not all shades of blue are created equal.");
+            break;
+        default:
+            console.log("I do not know anything by that color.");
+            break;
+    }
+}
+analyzeColor(randomColor);
+console.log(randomColor);
 
 /**
  * TODO:
@@ -118,6 +142,8 @@ console.log(analyzeColor(randomColor));
  * user to your `analyzeColor` function. Alert the return value from your
  * function to show it to the user.
  */
+
+var usersColor = prompt('Give me a color');
 
 /* ########################################################################## */
 
