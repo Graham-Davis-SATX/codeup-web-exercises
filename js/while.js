@@ -1,9 +1,5 @@
 "use strict";
 
-//PreWork While Loops
-
-//Exampls 1 & 2 While Loops
-
 var i = 2;
 while (i <= 65536) {
     console.log(i);

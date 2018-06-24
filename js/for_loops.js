@@ -1,3 +1,5 @@
+"use strict";
+
 function showMultiplicationTable(num) {
     for (var i = 1; i <= 10; i++){
         console.log(num + ' x ' + i + ' = ' + (i * num));
@@ -45,3 +47,5 @@ console.log("***********************************");
 for (var i = 100; i>=5; i-=5){
     console.log(i);
 }
+
+console.log("***********************************");
