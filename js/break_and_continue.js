@@ -18,7 +18,23 @@ function isOdd(input) {
 var number;
 
 do {
-    number =
+    number = parseFloat(prompt("Please input an odd number between 1 and 50"));
+    if(isOdd(number) && (number < 50 && number >=1)) {
+        break;
+    }
+} while(true);
+
+console.log('the number to skip is: ' + number);
+
+for (var i = 1; i <= 50; i++) {
+    if (i === number) {
+        console.log('Yikes! Skipping number: ' + i);
+        continue;
+    }
+
+    if(isOdd(i)) {
+        console.log('Here is an odd number: ' + i);
+    }
 }
 
 console.log("***********************************");
