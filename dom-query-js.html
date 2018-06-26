@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>DOM: Query and Modify</title>
+    <style>
+        body {
+            transition: all 1.5s ease;
+        }
+    </style>
+</head>
+<body>
+
+<button>Change Header</button>
+<button>Change sub-header</button>
+<button>Color the list items</button>
+<button>Say "Mission Accomplished"</button>
+<button id="addNewButton">Add a new button to the page</button>
+
+<h1 id="main-header">Hello World!</h1>
+<ul>
+    <li data-dbid="1">Item 1</li>
+    <li data-dbid="2">Item 2</li>
+    <li data-dbid="3">Item 3</li>
+    <li data-dbid="4">Item 4</li>
+    <li data-dbid="5">Item 5</li>
+</ul>
+<h2 id="sub-header">Hello Again.</h2>
+<p class="sub-paragraph">
+
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+    ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+    aliquip ex ea commodo consequat. Duis aute irure dolor in
+    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+    culpa qui officia deserunt mollit anim id est laborum.
+</p>
+
+<button id="rainbow"><h1>Rainbow Time</h1></button>
+
+<script>
+    "use strict";
+
+    var buttons = document.getElementsByTagName('button');
+
+    buttons[0].addEventListener('click', function() {
+        var mainHeader = document.getElementById('main-header');
+        if(mainHeader.innerHTML == "Hello World!") {
+            mainHeader.innerHTML = "JavaScript is Cool!";
+        } else if(mainHeader.innerHTML == "JavaScript is Cool!"){
+            mainHeader.innerHTML = "Hello World!";
+        }
+    });
+
+    buttons[1].addEventListener('click', function() {
+        var subHeader = document.getElementById('sub-header');
+        subHeader.style.color = 'blue';
+    });
+
+    buttons[2].addEventListener('click', function() {
+        var listItems = document.getElementsByTagName('li') ;
+
+        for (var i = 0; i < listItems.length; i += 2) {
+            listItems[i].style.color = 'gray';
+        }
+
+        for (i = 0; i < listItems.length; i++) {
+            var dbId = listItems[i].getAttribute('data-dbid');
+            if (dbId === '1') {
+                listItems[i].style.color = 'blue';
+            }
+        }
+    });
+
+    buttons[3].addEventListener('click', function() {
+        // how to create a *real* array from an HTML collection (which is a kinda sorta array)
+        var subParagraphs = document.getElementsByClassName("sub-paragraph");
+
+        // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
+        subParagraphs[0].innerText = "Mission Accomplished";
+    });
+
+
+    // TODO: Uncomment the next line and get all elements with class name sub-paragraph
+
+
+
+    // if you need to target an element on the page
+    // right click it in the browser
+    // inspect
+    // right click in the inspector -> copy -> copy selector
+    // this will give you the most efficient CSS selector for that specific element
+    // this selector can be directly used in your CSS style definitions
+    // If you want to JS it
+    // put that selector in a string.
+    // pass the string to:
+    // document.querySelector() gives you a single matching element
+    // document.querySelectorAll("li") gives you all matching elements
+    // document.querySelector("body > div > main > div > div.md-content > article > p:nth-child(17)")
+
+    document.getElementById("addNewButton").addEventListener('click', function() {
+        document.getElementById("addNewButton").style.display = "none";
+
+        document.body.innerHTML += "<button>Change the background color</button>";
+    });
+
+    // for(var i = 0; i <= 3; i++) {
+
+    //     document.body.innerHTML += "<button id='button" + i + "'>Stuff #" + i + "</button>";
+
+    // }
+
+    // function changes the background color on a timer to an array of 4 different colors
+    document.getElementById('rainbow').addEventListener('click', function() {
+        var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet', 'magenta', 'pink', 'salmon'];
+
+        var counter = 0;
+
+        var intervalId = setInterval(function() {
+            if(counter < colors.length) {
+                document.body.style['backgroundColor'] = colors[counter];
+                counter++;
+            } else {
+                counter = 0;
+            }
+        }, 333);
+    });
+
+
+    // var contents = document.body.innerHTML;
+    // document.body.innerHTML = "";
+
+    // var index = 0;
+
+    // window.addEventListener('keypress', function() {
+    //     document.body.innerHTML += contents[index];
+    //     index++;
+    // });
+
+
+</script>
+</body>
+</html>
