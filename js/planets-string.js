@@ -4,6 +4,8 @@
     var planetsString = "Mercury|Venus|Earth|Mars|Jupiter|Saturn|Uranus|Neptune";
     var planetsArray = planetsString.split('|');
 
+
+
     /**
      * TODO:
      * Convert planetsString to an array, and save it in a variable named
@@ -31,6 +33,8 @@
      * This would be a useful way to break apart an array to be displayed as a list of items on an html page.
      */
 
+    console.log('<ul><li>' + planetsArray.join('</li><li>') + '</li></ul>');
     document.write('<ul><li>' + planetsArray.join('</li><li>') + '</li></ul>');
 
 })();
+
