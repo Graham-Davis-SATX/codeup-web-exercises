@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Konami Code</title>
+</head>
+<body>
+<h1>Konami Code</h1>
+<audio id="my_audio" src="audio/mario_stage_clear.wav"></audio>
+
+
+<script src="js/jquery-2.2.4.js"></script>
+<script>
+    "use strict";
+
+
+
+    // $(document).keyup(function(event){
+    //     console.log(event.keyCode);
+
+    // var keys = [38,38,40,40,37,39,37,39,66,65,13];
+    var keys = [38,13];
+    var nextKey = 0;
+    $(document).keydown(function(e){
+        var key = e.which;
+        if(key === keys[nextKey]){
+            nextKey++
+        }
+        else {
+            nextKey = 0;
+        }
+        codeEntered();
+    });
+
+
+    function codeEntered(){
+        if(nextKey>=keys.length) {
+            $('body').css({
+                backgroundColor:'black',
+                backgroundImage:'url(\'https://media1.tenor.com/images/2b6d0826f02a9ba7c9d4384a740013e9/tenor.gif?itemid=5531028\')',
+                backgroundSize:'cover',
+                backgroundRepeat:'no-repeat'
+            });
+
+            $('h1').remove();
+            nextKey = 0;
+            alert('You\'re my boy blue!!!');
+            $("#my_audio").get(0).play();
+        }
+    }
+
+
+
+
+</script>
+</body>
+</html>
+
+
+<!--Allow the user to enter the Konami Code: "↑ ↑ ↓ ↓ ← → ← → b a enter" (the return key)-->
+<!--Find the matching sequence using the code above for each key in the Konami Code.-->
+<!--Don't worry about capital a or b just check for lowercase.-->
+<!--After the correct Konami Code sequence is inputted then the enter key have the script alert the user: "You have added 30 lives! Other ideas:-->
+<!--Change the background screen.-->
+<!--Play a sound.-->
+<!--Be creative!-->
+<!--Happy Playing.-->
