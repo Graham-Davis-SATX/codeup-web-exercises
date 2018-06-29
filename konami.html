@@ -6,6 +6,7 @@
 <body>
 <h1>Konami Code</h1>
 <audio id="my_audio" src="audio/mario_stage_clear.wav"></audio>
+<div></div>
 
 
 <script src="js/jquery-2.2.4.js"></script>
@@ -22,6 +23,7 @@
     var nextKey = 0;
     $(document).keydown(function(e){
         var key = e.which;
+        $("div").html("Key: " + event.which);
         if(key === keys[nextKey]){
             nextKey++
         }
@@ -42,8 +44,11 @@
             });
 
             $('h1').remove();
+            $('div').remove();
             nextKey = 0;
+
             alert('You\'re my boy blue!!!');
+
             $("#my_audio").get(0).play();
         }
     }
