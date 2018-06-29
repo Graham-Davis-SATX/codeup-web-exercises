@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mouse Events Lecture</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style>
+        main {
+            width: 1200px;
+            margin: 0 auto;
+        }
+        .box {
+            height: 200px;
+            width: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<main id="container">
+    <h1>Mouse Events Lecture</h1>
+    <h3 class="blueText">Sub Header</h3>
+    <div>
+        <p class="blueText">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+    </div>
+    <p class="blueText">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+    <hr>
+    <ul>
+        <li>Item 1</li>
+        <li id="specialItem">Item 2</li>
+        <li>Item 3</li>
+    </ul>
+    <div class="box" id="box"></div>
+    <br>
+    <div class="box"></div>
+</main>
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function(){
+
+        "use strict";
+
+        // ==================== JS vs. JQUERY
+
+        // with anon function
+
+        // document.getElementById('container').addEventListener('click', function() {
+        //     console.log('Clicked');
+        // });
+
+
+        // with callback function
+
+
+        // function logClicked() {
+        //     console.log('Clicked');
+        // }
+        //
+        // document.getElementById('container').addEventListener('click', logClicked);
+        //
+
+        // jQuery with anon function
+
+        // $('#container').click(function() {
+        //     console.log("Clicked");
+        // });
+
+
+
+        // jQuery with callback
+
+        // $('#container').click(logClicked);
+
+
+
+        // ==================== Additional Events
+
+        // Double click and using "this"
+
+        function changeToYellow() {
+            $(this).css('background', 'yellow');
+        }
+
+        $('li').dblclick(changeToYellow);
+
+
+
+        // Hover
+
+        //SINGLE FUNCTION
+
+        $('div').hover(function() {
+            $(this).css('border-radius', '100px');
+            console.log("FIRE!!!!");
+        }, function() {
+            $(this).css('border-radius', '0');
+        });
+
+
+        //TWO FUNCTIONS
+
+
+
+    });
+
+</script>
+</body>
+</html>
