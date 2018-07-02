@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+    <style>
+
+        h1 {
+            display: block;
+            width: 100%;
+        }
+
+        .invisible {
+            /*visibility: hidden*/
+            display: none;
+        }
+
+        .highlight {
+            background-color: #fdff41;
+        }
+        dt {
+            font-size: 1.5em;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container my-5">
+    <div class="row">
+        <div class="mx-auto">
+            <h1>Top 10 State and National Parks in Texas</h1>
+        </div>
+    </div>
+    <div class="row">
+        <dl>
+            <dt>Big Bend National Park and Big Bend State Park</dt>
+                <dd class="invisible"><strong>Top tip:</strong> Big Bend is located along a major migration pathway for hundreds of species of birds. Many northern species spend winters in the park, while birds from the tropics flock to the Rio Grande in the spring to mate and raise their young. Some species, like the Colima warbler, are found nowhere else in the US, making Big Bend a life-list destination for avid bird watchers.</dd>
+            <dt>Guadalupe Mountains National Park</dt>
+                <dd class="invisible"><strong>Top tip:</strong> For the biggest views in Texas, hike to the state's highest point: 2,667-metre Guadalupe Peak. A trail from the Pine Springs campground winds up more than 900 metres of elevation in 4.2 miles to the top of the Lone Star state, marked by a metal pyramid. The hike can be completed year round.</dd>
+            <dt>Hueco Tanks State Historic Site</dt>
+                <dd class="invisible"><strong>Top tip:</strong> Peak climbing season runs from October to March, with an annual Hueco Rock Rodeo held in February. Climbers from all over the world show up to compete and take part in instructional clinics. Spectators welcome.</dd>
+            <dt>Palo Duro Canyon State Park</dt>
+                <dd class="invisible"><strong>Top tip:</strong> During the summer months, an outdoor musical drama called simply "TEXAS" lights up the Pioneer Amphitheater in the Park on Thursday, Friday and Saturday nights. As the official play of the State of Texas, the family-friendly show depicts the trials and triumphs faced by the settlers of the Panhandle.</dd>
+            <dt>Caprock Canyons State Park and Trailway</dt>
+                <dd class="invisible"><strong>Top tip:</strong> The Trailway is a 64-mile hiking, biking and equestrian trail that runs through the park following the abandoned Fort Worth and Denver Railroad line between Estelline and the South Plains. The trail passes through three counties, across 46 bridges and through the Clarity Tunnel, home to a half-million Mexican free-tailed bats during the summer months.</dd>
+            <dt>Enchanted Rock State Natural Area</dt>
+                <dd class="invisible"><strong>Top tip:</strong> You don't have to be a hardcore climber to reach the top of Enchanted Rock. A 0.6-mile walking trail runs from the base up to the rounded summit. Parts of the trail are steep and the rock can be slippery when wet, but the short, spectacular hike is well worth the effort for the 360-degree views.</dd>
+            <dt>Padre Island National Seashore</dt>
+                <dd class="invisible"><strong>Top tip:</strong> Stay in one of the national seashore's five campgrounds and catch sunrise over the Gulf of Mexico.</dd>
+            <dt>Lost Maples State Natural Area</dt>
+                <dd class="invisible"><strong>Top tip:</strong> The Park posts "fall foliage reports" on their website during the peak leaf season. Weekends can get crowded and Parking is limited so aim to visit on a weekday. Cabin rentals are available in nearby Vanderpool.</dd>
+            <dt>Longhorn Caverns State Park</dt>
+                <dd class="invisible"><strong>Top tip:</strong> The Wild Cave tour takes more adventurous visitors on a two-hour underground journey that calls for climbing, crawling and squeezing through narrow passages. Required protective equipment such as helmets, elbow and knee pads can be rented from the park. Tours take place most Saturdays throughout the year. Reservations highly recommended.</dd>
+            <dt>Zilker Metropolitan Park</dt>
+                <dd class="invisible"><strong>Top tip:</strong> Texas can be sweltering hot so it's no wonder that the Barton Springs Pool in Zilker park is one of Austin's most popular attractions. This three-acre pool, fed from underground springs, averages 21C (70F) and is open to the public year-round.</dd>
+        </dl>
+    </div>
+    <div class="row">
+        <button type="button" id="definitionToggler" class="btn btn-primary btn-lg">Toggle Definitions</button>
+    </div>
+</div>
+
+
+</div>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+
+<script>
+    "use strict";
+
+    (function() {
+        $(document).ready(function() {
+            $('#definitionToggler').click(function(){
+                $('dd').toggleClass('invisible');
+            });
+
+            $('dt').dblclick(function(){
+               $(this).toggleClass('highlight');
+            });
+
+        });
+    })();
+</script>
+</body>
+</html>
