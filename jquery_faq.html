@@ -29,47 +29,56 @@
             font-size: 1.5em;
         }
 
+        img {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            height: 100%;
+            opacity: 0.2;
+            z-index: -1;
+        }
+
+
     </style>
 </head>
 <body>
 
-<div class="container my-5">
-    <div class="row">
-        <div class="mx-auto">
-            <h1>Top 10 State and National Parks in Texas</h1>
+    <div class="container my-5">
+        <img src="img/texas_map_cartoon.jpg" alt="Responsive image">
+        <div class="row">
+            <div class="mx-auto">
+                <h1>Top 10 State and National Parks in Texas</h1>
+            </div>
+        </div>
+        <div class="row">
+            <dl id="nationalParks">
+                <dt>Big Bend National Park and Big Bend State Park</dt>
+                    <dd class="invisible"><strong>Top tip:</strong> Big Bend is located along a major migration pathway for hundreds of species of birds. Many northern species spend winters in the park, while birds from the tropics flock to the Rio Grande in the spring to mate and raise their young. Some species, like the Colima warbler, are found nowhere else in the US, making Big Bend a life-list destination for avid bird watchers.</dd>
+                <dt>Guadalupe Mountains National Park</dt>
+                    <dd class="invisible"><strong>Top tip:</strong> For the biggest views in Texas, hike to the state's highest point: 2,667-metre Guadalupe Peak. A trail from the Pine Springs campground winds up more than 900 metres of elevation in 4.2 miles to the top of the Lone Star state, marked by a metal pyramid. The hike can be completed year round.</dd>
+                <dt>Hueco Tanks State Historic Site</dt>
+                    <dd class="invisible"><strong>Top tip:</strong> Peak climbing season runs from October to March, with an annual Hueco Rock Rodeo held in February. Climbers from all over the world show up to compete and take part in instructional clinics. Spectators welcome.</dd>
+                <dt>Palo Duro Canyon State Park</dt>
+                    <dd class="invisible"><strong>Top tip:</strong> During the summer months, an outdoor musical drama called simply "TEXAS" lights up the Pioneer Amphitheater in the Park on Thursday, Friday and Saturday nights. As the official play of the State of Texas, the family-friendly show depicts the trials and triumphs faced by the settlers of the Panhandle.</dd>
+                <dt>Caprock Canyons State Park and Trailway</dt>
+                    <dd class="invisible"><strong>Top tip:</strong> The Trailway is a 64-mile hiking, biking and equestrian trail that runs through the park following the abandoned Fort Worth and Denver Railroad line between Estelline and the South Plains. The trail passes through three counties, across 46 bridges and through the Clarity Tunnel, home to a half-million Mexican free-tailed bats during the summer months.</dd>
+                <dt>Enchanted Rock State Natural Area</dt>
+                    <dd class="invisible"><strong>Top tip:</strong> You don't have to be a hardcore climber to reach the top of Enchanted Rock. A 0.6-mile walking trail runs from the base up to the rounded summit. Parts of the trail are steep and the rock can be slippery when wet, but the short, spectacular hike is well worth the effort for the 360-degree views.</dd>
+                <dt>Padre Island National Seashore</dt>
+                    <dd class="invisible"><strong>Top tip:</strong> Stay in one of the national seashore's five campgrounds and catch sunrise over the Gulf of Mexico.</dd>
+                <dt>Lost Maples State Natural Area</dt>
+                    <dd class="invisible"><strong>Top tip:</strong> The Park posts "fall foliage reports" on their website during the peak leaf season. Weekends can get crowded and Parking is limited so aim to visit on a weekday. Cabin rentals are available in nearby Vanderpool.</dd>
+                <dt>Longhorn Caverns State Park</dt>
+                    <dd class="invisible"><strong>Top tip:</strong> The Wild Cave tour takes more adventurous visitors on a two-hour underground journey that calls for climbing, crawling and squeezing through narrow passages. Required protective equipment such as helmets, elbow and knee pads can be rented from the park. Tours take place most Saturdays throughout the year. Reservations highly recommended.</dd>
+                <dt>Zilker Metropolitan Park</dt>
+                    <dd class="invisible"><strong>Top tip:</strong> Texas can be sweltering hot so it's no wonder that the Barton Springs Pool in Zilker park is one of Austin's most popular attractions. This three-acre pool, fed from underground springs, averages 21C (70F) and is open to the public year-round.</dd>
+            </dl>
+        </div>
+        <div class="row">
+            <button type="button" id="definitionToggler" class="btn btn-primary btn-lg">Toggle Definitions</button>
         </div>
     </div>
-    <div class="row">
-        <dl>
-            <dt>Big Bend National Park and Big Bend State Park</dt>
-                <dd class="invisible"><strong>Top tip:</strong> Big Bend is located along a major migration pathway for hundreds of species of birds. Many northern species spend winters in the park, while birds from the tropics flock to the Rio Grande in the spring to mate and raise their young. Some species, like the Colima warbler, are found nowhere else in the US, making Big Bend a life-list destination for avid bird watchers.</dd>
-            <dt>Guadalupe Mountains National Park</dt>
-                <dd class="invisible"><strong>Top tip:</strong> For the biggest views in Texas, hike to the state's highest point: 2,667-metre Guadalupe Peak. A trail from the Pine Springs campground winds up more than 900 metres of elevation in 4.2 miles to the top of the Lone Star state, marked by a metal pyramid. The hike can be completed year round.</dd>
-            <dt>Hueco Tanks State Historic Site</dt>
-                <dd class="invisible"><strong>Top tip:</strong> Peak climbing season runs from October to March, with an annual Hueco Rock Rodeo held in February. Climbers from all over the world show up to compete and take part in instructional clinics. Spectators welcome.</dd>
-            <dt>Palo Duro Canyon State Park</dt>
-                <dd class="invisible"><strong>Top tip:</strong> During the summer months, an outdoor musical drama called simply "TEXAS" lights up the Pioneer Amphitheater in the Park on Thursday, Friday and Saturday nights. As the official play of the State of Texas, the family-friendly show depicts the trials and triumphs faced by the settlers of the Panhandle.</dd>
-            <dt>Caprock Canyons State Park and Trailway</dt>
-                <dd class="invisible"><strong>Top tip:</strong> The Trailway is a 64-mile hiking, biking and equestrian trail that runs through the park following the abandoned Fort Worth and Denver Railroad line between Estelline and the South Plains. The trail passes through three counties, across 46 bridges and through the Clarity Tunnel, home to a half-million Mexican free-tailed bats during the summer months.</dd>
-            <dt>Enchanted Rock State Natural Area</dt>
-                <dd class="invisible"><strong>Top tip:</strong> You don't have to be a hardcore climber to reach the top of Enchanted Rock. A 0.6-mile walking trail runs from the base up to the rounded summit. Parts of the trail are steep and the rock can be slippery when wet, but the short, spectacular hike is well worth the effort for the 360-degree views.</dd>
-            <dt>Padre Island National Seashore</dt>
-                <dd class="invisible"><strong>Top tip:</strong> Stay in one of the national seashore's five campgrounds and catch sunrise over the Gulf of Mexico.</dd>
-            <dt>Lost Maples State Natural Area</dt>
-                <dd class="invisible"><strong>Top tip:</strong> The Park posts "fall foliage reports" on their website during the peak leaf season. Weekends can get crowded and Parking is limited so aim to visit on a weekday. Cabin rentals are available in nearby Vanderpool.</dd>
-            <dt>Longhorn Caverns State Park</dt>
-                <dd class="invisible"><strong>Top tip:</strong> The Wild Cave tour takes more adventurous visitors on a two-hour underground journey that calls for climbing, crawling and squeezing through narrow passages. Required protective equipment such as helmets, elbow and knee pads can be rented from the park. Tours take place most Saturdays throughout the year. Reservations highly recommended.</dd>
-            <dt>Zilker Metropolitan Park</dt>
-                <dd class="invisible"><strong>Top tip:</strong> Texas can be sweltering hot so it's no wonder that the Barton Springs Pool in Zilker park is one of Austin's most popular attractions. This three-acre pool, fed from underground springs, averages 21C (70F) and is open to the public year-round.</dd>
-        </dl>
-    </div>
-    <div class="row">
-        <button type="button" id="definitionToggler" class="btn btn-primary btn-lg">Toggle Definitions</button>
-    </div>
-</div>
-
-
-</div>
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -91,6 +100,18 @@
             });
 
         });
+        // $('dd').first().css('background-color', '#FF0'); //highlights the background color of the first dd element
+
+        $('dd').each(function(index) { //highlight every other dd element
+           if (index % 2 !== 0) {
+               $(this).css('background-color', 'indianred').css('font-style', 'italic')
+           } else {
+               $(this).css('background-color', 'skyblue')
+           }
+
+
+        });
+
     })();
 </script>
 </body>
