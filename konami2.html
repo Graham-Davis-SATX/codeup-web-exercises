@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Konami Code</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Galindo" rel="stylesheet">
+    <link rel="stylesheet" href="css/konami2-style.css">
+</head>
+
+
+<body>
+
+<div id="main">
+
+    <img src="img/super-logo.png" alt="" id="mario-logo">
+    <div class="audio-player" id="song"></div>
+    <div id="privateBG"></div>
+    <div id="oneUpPopup">
+        <div id="extra-color">
+            <ul>
+                <li><img src="img/1up-mushroom.jpg" alt=""></li>
+                <li><p contenteditable="true">
+                    <span id="three">3</span>
+                    <span id="zero">0</span>
+                    <span id="uLetter">u</span>
+                    <span id="pLetter">p</span>
+                    <span id="exclaim">!</span>
+                </p></li>
+                <li><img src="img/1up-mushroom.jpg" alt=""></li>
+            </ul>
+            <img src="img/mario-banana.gif" alt="">
+        </div>
+    </div>
+
+</div>
+
+
+
+<script src="js/jquery-2.2.4.js"></script>
+<script>
+    "use strict";
+
+
+    var keySequence = {
+        38: 'up',
+        40: 'down',
+        37: 'left',
+        39: 'right',
+        66: 'b',
+        65: 'a',
+        13: 'enter'
+    };
+    var konamiCode = ['up', 'up', 'down', 'down', 'left', 'right', 'left', 'right', 'b', 'a', 'enter'];
+
+    var codePosition = 0;
+
+    var bgMusicObj = document.createElement('audio');
+    bgMusicObj.src = 'audio/smb_intro.mp3';
+    bgMusicObj.volume = 0.1;
+    bgMusicObj.autoPlay = true;
+    bgMusicObj.preLoad = true;
+    bgMusicObj.controls = true;
+
+    var fireballObj = document.createElement('audio');
+    fireballObj.src = 'audio/smb_fireball.wav';
+    fireballObj.volume = 0.2;
+    fireballObj.autoPlay = false;
+    fireballObj.preLoad = true;
+    fireballObj.controls = true;
+
+    var oneUpObj = document.createElement('audio');
+    oneUpObj.src = 'audio/smb_1-up.wav';
+    oneUpObj.volume = 0.3;
+    oneUpObj.autoPlay = false;
+    oneUpObj.preLoad = true;
+    oneUpObj.controls = true;
+
+    bgMusicObj.play();
+    $(document).keyup(function(event){
+
+        var key = keySequence[event.keyCode];
+        var requiredKey = konamiCode[codePosition];
+        console.log('Key pressed: ' + key);
+
+        if (key == requiredKey) {
+            fireballObj.play();
+            codePosition++;
+
+            if (codePosition === konamiCode.length) {
+                cheatCodeActivate();
+                codePosition = 0;
+            }
+        } else {
+            codePosition = 0;
+        }
+    });
+
+
+    function cheatCodeActivate() {
+        oneUpObj.play();
+        $('body').css('overflow', 'hidden');
+        $('#oneUpPopup').fadeIn();
+        $('#privateBG').fadeIn();
+
+        setTimeout(function () {
+            $("#oneUpPopup").fadeOut();
+            $("#privateBG").fadeOut();
+            $("body").css("overflow", "auto");
+        }, 5000);
+
+        console.log('Worked');
+    }
+
+</script>
+
+</body>
+</html>
