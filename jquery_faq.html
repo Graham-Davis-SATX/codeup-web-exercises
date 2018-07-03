@@ -79,21 +79,21 @@
             <button type="button" id="definitionToggler" class="btn btn-primary btn-lg mb-5">Toggle Definitions</button>
         </div>
         <div class="row">
-            <h2>Perdnales Falls State Park</h2>
+            <h3>Perdnales Falls State Park</h3>
             <ul>
                 <li>Located in the core of the Hill Country, Pedernales Falls is distinguished by huge slabs of ancient limestone that have been gouged by furious floodwaters of the Pedernales River.</li>
                 <li>The limestone riverbed of the Pedernales is roughly 300 million years old.</li>
                 <li>Spanish explorers in the 1700s named the river "pedernales" for the flint rock found in the riverbed, which was used by the Native Americans for arrow and dart points.</li>
                 <li>People have lived in the vicinity for 10,000 years. In the 19th century, hostile Comanche raids pushed out the Lipan Apaches who lived there.</li>
             </ul>
-            <h2>Big Bend National Park</h2>
+            <h3>Big Bend National Park</h3>
             <ul>
                 <li>Langford Hot Springs near the park's Rio Grande was formed by volcanic activity is about 105 degrees Fahrenheit.</li>
                 <li>The Chisos Mountains were formed nearly 35 millions years ago after volcanic activity spewed layers of ash and molten rock squeezed up through the ground.</li>
                 <li>The park spans 801,163 acres, which is about 1,252 sq. miles.</li>
                 <li>Two seas, back-to-back, covered the region and subsided hundreds of millions of years ago. As a result, there are thick deposits of shale and limestone.</li>
             </ul>
-            <h2>Garner State Park</h2>
+            <h3>Garner State Park</h3>
             <ul>
                 <li>The park's rock formations were created in the Cretaceous age, which ended around 65 million years ago</li>
                 <li>Before tubers flocked to the river, natives camped in the area ...12,000 years ago. Aborigines chose to live in the area because of its plentiful game, useful plants and dependable Frio River.</li>
@@ -156,17 +156,24 @@
 
 
 
+            //highlight all <li> elements in a single <ul> when the parent <h3> element is clicked
+            $('h3').dblclick(function(){
+                $(this).next().children().css('font-weight', 'bold')
+            });
 
 
 
-
+            // When any list item is clicked, first li of the parent ul should have a font color of blue.
+            $('ul').click(function() {
+                $(this).children().first().css('color', 'blue')
+            });
 
 
         });
 
 
 
-    })();
+    })();//iife end
 </script>
 </body>
 </html>
