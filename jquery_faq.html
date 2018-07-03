@@ -14,7 +14,7 @@
     <style>
 
 
-        h1 {
+        h1,h2 {
             display: block;
             width: 100%;
             text-align: center;
@@ -67,6 +67,8 @@
     </style>
 </head>
 <body>
+
+<h2 id="register">Like what you see? Click <a href="#">here</a> to register  site</h2>
 
     <div class="container my-5">
         <div class="row">
@@ -200,6 +202,15 @@
             $('.parkFactsToggle').dblclick(function() {
                 $(this).next().slideToggle('slow');
             });
+
+
+            $('#register').hide();
+                setTimeout(function() {
+                    $('#register').fadeIn(1000);
+                }, 8000);
+
+
+
 
 
         }); //end of document.ready
