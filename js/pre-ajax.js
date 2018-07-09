@@ -34,7 +34,6 @@ $(document).ready(function(){
 
 
 
-
     // $('#add-names-btn').click(function () {
     //
     //     if($('#names-list').html() === '') {
