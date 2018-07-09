@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,14 +26,6 @@
     (function() {
         "use strict";
         // TODO: Create an ajax GET request for /data/inventory.json
-
-        $.get( "./data/inventory.json", function( data ) {
-            $( "#insertProducts" )
-                .append( "Title: " + data.title ) // John
-                .append( "Quantity: " + data.quantity ) //  2pm
-                .append( "Category: " + data.categories );
-        }, "json" );
-
 
         // TODO: Take the data from inventory.json and append it to the products table
         //       HINT: Your data should come back as a JSON object; use console.log() to inspect
