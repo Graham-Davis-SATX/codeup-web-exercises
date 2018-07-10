@@ -10,10 +10,26 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <title>Weather Map</title>
-    <div id="weatherForecast"></div>
 
 </head>
 <body>
+
+<div class="jumbotron mb-0">
+    <h2 class="text-center">Get Current Weather</h2>
+</div>
+
+<div class="container">
+    <div class="row">
+        <h3 class="text-center text-primary">Enter City Name</h3>
+        <span id="error"></span>
+    </div>
+    <div class="row form-group form-inline" id="rowDiv">
+        <input type="text" name="city" id="city" class="form-control" placeholder="City Name">
+        <button id="submitWeather" class="btn btn-primary">Search City</button>
+    </div>
+
+    <div id="show"></div>
+</div>
 
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
@@ -25,19 +41,65 @@
 <script>
     $(document).ready(function() {
         "use strict";
-        var jqXhr = $.get('http://api.openweathermap.org/data/2.5/forecast', {
-            APPID: '7f8e3aa0aad113510e0c1eaafd1c17b8',
-            // APPID: '4a61c57eb2d34636caff41e12ab44fff',
-            q: "San Antonio, US",
-            units: 'imperial'
+
+        $('#submitWeather').click(function(){
+
+            var city = $('#city').val();
+
+            if(city != ''){
+
+                $.ajax({
+                    url: 'http://api.openweathermap.org/data/2.5/forecast?q=' + city + '&units=imperial' + '&APPID=7f8e3aa0aad113510e0c1eaafd1c17b8',
+                    type: 'GET',
+                    dataType: 'jsonp',
+                    success: function(data){
+                        var widget = show(data);
+
+                        $('#show').html(widget);
+
+                        $('#city').val('');
+                        console.log(data);
+
+                    }
+                });
+
+            } else {
+                $('#error').html('Field cannot be empty');
+            }
 
         });
 
-        jqXhr.done(function (data) {
-            console.log(data);
+        function show(data) {
+            return  '<p>City: ' + data.city.name + '</p>' +
+                    '<p>Max Temp: ' + data.list[0].main.temp_max + '°F' + '</p>';
+        }
 
-        });
-    });
+
+    }); //ends the doc.ready func
+
+
+
+
+        // var jqXhr = $.get('http://api.openweathermap.org/data/2.5/forecast', {
+        //     APPID: '7f8e3aa0aad113510e0c1eaafd1c17b8',
+        //     // APPID: '4a61c57eb2d34636caff41e12ab44fff',
+        //     q: "San Antonio, US",
+        //     units: 'imperial'
+        //
+        // });
+        //
+        // jqXhr.done(function (data) {
+        //     console.table(data);
+        //     console.log(data);
+        //     // console.table(data.list[0]);
+        //     // console.log(data.city.name);
+        //     console.log('The humidity of the 2nd day is ' + data.list[16].main.humidity + '%');
+        //
+        // });
+
+
+
+
 </script>
 </body>
 </html>
