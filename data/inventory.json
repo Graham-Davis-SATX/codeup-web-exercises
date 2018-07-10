@@ -2,33 +2,28 @@
   {
     "title": "Hammer",
     "quantity": 25,
-    "categories": [
-      "tool"
-    ],
+    "categories": ["tool"],
     "price": 20
-  }, {
-  "title": "Drill",
-  "quantity": 5,
-  "categories": [
-    "tool",
-    "powered"
-  ],
-  "price": 100
-}, {
+  },
+
+  {
+    "title": "Drill",
+    "quantity": 5,
+    "categories": ["tool", "powered"],
+    "price": 100
+  },
+
+  {
   "title": "Mower",
   "quantity": 5,
-  "categories": [
-    "tool",
-    "gas",
-    "outdoor"
-  ],
+  "categories": ["tool", "gas", "outdoor"],
   "price": 200
-}, {
+  },
+
+  {
   "title": "Screwdrivers",
   "quantity": 25,
-  "categories": [
-    "tool"
-  ],
+  "categories": ["tool"],
   "price": 10
-}
+  }
 ]

@@ -50,6 +50,9 @@
     // };
     // ourRequest.send();
 
+
+
+
 var pageCounter = 1;
 var animalContainer = document.getElementById("animal-info");
 var btn = document.getElementById("btn");
