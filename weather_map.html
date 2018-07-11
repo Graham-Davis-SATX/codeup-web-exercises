@@ -12,21 +12,18 @@
     <title>Weather Map</title>
     <style>
 
-        /** {*/
-            /*border: 1px solid red;*/
-        /*}*/
 
         .jumbotron {
-            text-align: center;
-            padding: 15rem 0;
-            text-shadow: 2px 2px #000;
+            padding-top: 20rem;
         }
 
         .bg-cover {
-            background-image: url('img/weather_og.png');
+            background-image: url('img/weather.jpg');
             background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center center;
+            background-size: contain, cover;
+            background-position: center;
+            margin-top: 0;
+            background-color: rgba(255, 255, 255, 0);
 
         }
 
@@ -45,41 +42,44 @@
 
 </head>
 <body>
-
-    <div class="jumbotron jumbotron-fluid bg-cover mb-0">
-    </div>
-
     <div class="container">
+        <div class="jumbotron bg-cover mb-0"></div>
         <div class="row d-flex justify-content-center pt-3">
-            <h3 class="text-primary">Enter City Name</h3>
+            <h3 class="text-primary text-center">Enter City Name</h3>
         </div>
-        <div class="row form-group form-inline d-flex justify-content-center" id="rowDiv">
-            <input type="text" name="city" id="city" class="form-control" placeholder="City Name">
-            <button id="submitWeather" class="btn btn-primary">Search City</button>
-            <p id="error"></p>
-        </div>
-        <div class="row">
-            <div class="col-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title" id="todayDate"></h5>
-                        <p class="card-text"><div id="today" class="text-primary"></div></p>
+        <div class="row d-flex justify-content-center">
+            <div class="col-9">
+                <div class="input-group pb-3">
+                    <input type="text" name="city" id="city" class="form-control" placeholder="Enter City Name or Zip Code">
+                    <div class="input-group-append">
+                        <button id="submitWeather" class="btn btn-outline-primary" type="button">Search City</button>
+                        <p id="error"></p>
                     </div>
                 </div>
             </div>
-            <div class="col-4">
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-12">
                 <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title" id="tomorrowDate"></h5>
+                    <div class="card-body text-center">
+                        <h3 class="card-title" id="todayDate"></h3>
+                        <p class="card-text"><div id="today" class="text-info"></div></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-12">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <h3 class="card-title" id="tomorrowDate"></h3>
                         <p class="card-text"><div id="tomorrow" class="text-danger"></div></p>
                     </div>
                 </div>
             </div>
-            <div class="col-4">
+            <div class="col-md-4 col-12">
                 <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title" id="thirdDayDate"></h5>
-                        <p class="card-text"><div id="day-three"></div></p>
+                    <div class="card-body text-center">
+                        <h3 class="card-title" id="thirdDayDate"></h3>
+                        <p class="card-text"><div id="day-three" class="text-success"></div></p>
                     </div>
                 </div>
             </div>
@@ -146,37 +146,56 @@
             weekday[6] = "Saturday";
 
             var today = weekday[d.getDay()];
-            document.getElementById("todayDate").innerHTML = today;
-            $('#todayDate').htnh
+            $('#todayDate').html(today)
             var tomorrow = weekday[d.getDay() + 1];
-            document.getElementById("tomorrowDate").innerHTML = tomorrow;
+            $('#tomorrowDate').html(tomorrow)
             var thirdDay = weekday[d.getDay() + 2];
-            document.getElementById("thirdDayDate").innerHTML = thirdDay;
+            $('#thirdDayDate').html(thirdDay)
+        }
 
+        function degToCompass(num) {
+            var val = Math.floor((num / 22.5) + 0.5);
+            var arr = ["N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"];
+            return arr[(val % 16)];
+        }
 
-            document.getElementById('contents'); //returns a HTML DOM Object
-            var contents = $('#contents');  //returns a jQuery Object
-            var contents = $('#contents')[0]; //returns a HTML DOM Object
-
-
-            document.all.regTitle.innerHTML = 'Hello World';
-            $("#regTitle").html("Hello World");
+        function hpaInches(num) {
+            var val = (num * .030);
+            return val.toFixed(2)
         }
 
         function showToday(weatherData){
-            return  '<h2><strong>Weather</strong>: '+ weatherData.list[0].main.temp_max +'</h2>'
-        };
+            return  '<div class="container"><div class="row">' +
+                '<div class="col"><h6 class="description"><strong>' + '<img src="http://openweathermap.org/img/w/' + weatherData.list[0].weather[0].icon +'.png">' + weatherData.list[0].weather[0].description + '</strong>' + '<img src="http://openweathermap.org/img/w/' + weatherData.list[0].weather[0].icon +'.png">' + '</h6></div></div>' +
+                '<div class="row"><div class="col-6"><p><strong>High</strong>:<br> '+ weatherData.list[0].main.temp_max +' &degF</p></div>' +
+                '<div class="col-6"><p><strong>Low</strong>:<br> '+ weatherData.list[0].main.temp_min +' &degF</p></div>' +
+                '<div class="col-6"><p><strong>Wind Speed</strong>:<br> '+ weatherData.list[0].wind.speed +' mph' + '</p></div>' +
+                '<div class="col-6"><p><strong>Wind Direction</strong>:<br> '+ degToCompass(weatherData.list[0].wind.deg) + '</p></div>' +
+                '<div class="col"><p><strong>Humidity</strong>:<br> '+ weatherData.list[0].main.humidity +' %</p></div>' +
+                '<div class="col"><p><strong>Barrometer</strong>:<br> '+ hpaInches(weatherData.list[0].main.pressure) +' inches</p></div>';
+        }
 
         function showTomorrow(weatherData){
-            return  '<h2><strong>Weather</strong>: '+ weatherData.list[8].main.temp_max +'</h2>'
+            return  '<div class="container"><div class="row">' +
+                '<div class="col"><h6 class="description"><strong>' + '<img src="http://openweathermap.org/img/w/' + weatherData.list[8].weather[0].icon +'.png">' + weatherData.list[8].weather[0].description + '</strong>' + '<img src="http://openweathermap.org/img/w/' + weatherData.list[8].weather[0].icon +'.png">' + '</h6></div></div>' +
+                '<div class="row"><div class="col-6"><p><strong>High</strong>:<br> '+ weatherData.list[8].main.temp_max +' &degF</p></div>' +
+                '<div class="col-6"><p><strong>Low</strong>:<br> '+ weatherData.list[8].main.temp_min +' &degF</p></div>' +
+                '<div class="col-6"><p><strong>Wind Speed</strong>:<br> '+ weatherData.list[8].wind.speed +' mph' + '</p></div>' +
+                '<div class="col-6"><p><strong>Wind Direction</strong>:<br> '+ degToCompass(weatherData.list[8].wind.deg) + '</p></div>' +
+                '<div class="col"><p><strong>Humidity</strong>:<br> '+ weatherData.list[8].main.humidity +' %</p></div>' +
+                '<div class="col"><p><strong>Barrometer</strong>:<br> '+ hpaInches(weatherData.list[8].main.pressure) +' inches</p></div>';
         }
 
         function showDayThree(weatherData){
-            return  '<h2><strong>Weather</strong>: '+ weatherData.list[16].main.temp_max +'</h2>'
+            return  '<div class="container"><div class="row">' +
+                '<div class="col"><h6 class="description"><strong>' + '<img src="http://openweathermap.org/img/w/' + weatherData.list[16].weather[0].icon +'.png">' + weatherData.list[16].weather[0].description + '</strong>' + '<img src="http://openweathermap.org/img/w/' + weatherData.list[16].weather[0].icon +'.png">' + '</h6></div></div>' +
+                '<div class="row"><div class="col-6"><p><strong>High</strong>:<br> '+ weatherData.list[16].main.temp_max +' &degF</p></div>' +
+                '<div class="col-6"><p><strong>Low</strong>:<br> '+ weatherData.list[16].main.temp_min +' &degF</p></div>' +
+                '<div class="col-6"><p><strong>Wind Speed</strong>:<br> '+ weatherData.list[16].wind.speed +' mph' + '</p></div>' +
+                '<div class="col-6"><p><strong>Wind Direction</strong>:<br> '+ degToCompass(weatherData.list[16].wind.deg) + '</p></div>' +
+                '<div class="col"><p><strong>Humidity</strong>:<br> '+ weatherData.list[16].main.humidity +' %</p></div>' +
+                '<div class="col"><p><strong>Barrometer</strong>:<br> '+ hpaInches(weatherData.list[16].main.pressure) +' inches</p></div>';
         }
-
-
-
 
 
     }); //ends the doc.ready func
