@@ -12,6 +12,10 @@
     <title>Weather Map</title>
     <style>
 
+        /** {*/
+            /*border: 1px solid red;*/
+        /*}*/
+
         .jumbotron {
             text-align: center;
             padding: 15rem 0;
@@ -42,27 +46,48 @@
 </head>
 <body>
 
-<div class="jumbotron jumbotron-fluid bg-cover mb-0">
+    <div class="jumbotron jumbotron-fluid bg-cover mb-0">
+    </div>
+
     <div class="container">
-        <h1 class="text-center display-4"></h1>
+        <div class="row d-flex justify-content-center pt-3">
+            <h3 class="text-primary">Enter City Name</h3>
+        </div>
+        <div class="row form-group form-inline d-flex justify-content-center" id="rowDiv">
+            <input type="text" name="city" id="city" class="form-control" placeholder="City Name">
+            <button id="submitWeather" class="btn btn-primary">Search City</button>
+            <p id="error"></p>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title" id="todayDate"></h5>
+                        <p class="card-text"><div id="today" class="text-primary"></div></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title" id="tomorrowDate"></h5>
+                        <p class="card-text"><div id="tomorrow" class="text-danger"></div></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title" id="thirdDayDate"></h5>
+                        <p class="card-text"><div id="day-three"></div></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
 
-<div class="container">
-    <div class="row d-flex justify-content-center">
-        <h3 class="text-primary">Enter City Name</h3>
-    </div>
-    <div class="row form-group form-inline d-flex justify-content-center" id="rowDiv">
-        <input type="text" name="city" id="city" class="form-control" placeholder="City Name">
-        <button id="submitWeather" class="btn btn-primary">Search City</button>
-        <p id="error"></p>
-    </div>
-<div class="col d-flex justify-content-center">
-    <div id="show"></div>
-</div>
-</div>
 
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
@@ -73,56 +98,83 @@
     $(document).ready(function() {
         "use strict";
 
-        // button click
+        // this is the button that activates the ajax request
         $('#submitWeather').click(function(){
 
-            // data from the input field
+            // gets the value of the input field
             var city = $('#city').val();
 
-            // once the city is submitted, the input field is cleared to be ready for the next entry
+            //check to see if input field is empty
             if(city != ''){
 
-                //ajax request
-                $.ajax({
-                    url: 'http://api.openweathermap.org/data/2.5/forecast?q=' + city + '&units=imperial' + '&APPID=7f8e3aa0aad113510e0c1eaafd1c17b8',
+                $.ajax({ //city is passed in from the input field above
+                   url: 'http://api.openweathermap.org/data/2.5/forecast?q=' + city + '&units=imperial' + '&APPID=7f8e3aa0aad113510e0c1eaafd1c17b8',
                     type: 'GET',
                     dataType: 'jsonp',
-                    success: function(data){
+                    //request has been sent and the return info is stored in the 'data' callback
+                    success: function(weatherData){
+                        console.log(weatherData);
+                        var widgetToday = showToday(weatherData);
+                        var widgetTomorrow = showTomorrow(weatherData);
+                        var widgetDayThree = showDayThree(weatherData);
 
-                        // storing all the entries in a widget to be displayed on the page
-                        var widget = '<p><strong>The forecasted weather for ' + data.city.name + ' is:</strong></p>';
-                        console.log(data);
+                        $('#today').html(widgetToday);
+                        $('#tomorrow').html(widgetTomorrow);
+                        $('#day-three').html(widgetDayThree);
 
-                        // for loop isolates the array and returns the data for the same time every day
-                        for (var i = 0; i < data.list.length; i += 8) {
-                            // console.log(data.list[i]);
-                            widget += show(data.list[i]); //adding the data from the loop to the widget
-                        }
-
-                        // all the data gathered from above is
-                        $('#show').html(widget);
-
+                        //empty the input field after button submission
                         $('#city').val('');
-                        // console.log(data);
-
                     }
                 });
+                dayOfWeek();
 
             } else {
-                $('#error').html('Field cannot be empty');
+                $('#error').html('Field cannot be empty!');
             }
 
         });
 
+        function dayOfWeek() {
+            var d = new Date();
+            var weekday = new Array(7);
+            weekday[0] = "Sunday";
+            weekday[1] = "Monday";
+            weekday[2] = "Tuesday";
+            weekday[3] = "Wednesday";
+            weekday[4] = "Thursday";
+            weekday[5] = "Friday";
+            weekday[6] = "Saturday";
 
-        function show(day) {
-            return  '<p class="description">Description: ' + day.weather[0].description + '<img src="http://openweathermap.org/img/w/' + day.weather[0].icon +'.png">' + '</p>' +
-                    '<p>Following forecast for: ' + day.dt_txt + '</p>' +
-                    '<p>Today\'s High: ' + day.main.temp_max + '&degF' + '</p>' +
-                    '<p>Today\'s Low: ' + day.main.temp_min + '&degF' + '</p>' +
-                    '<p>Forecasted Humidity: ' + day.main.humidity + '%' + '</p>' +
-                    '<hr>';
+            var today = weekday[d.getDay()];
+            document.getElementById("todayDate").innerHTML = today;
+            $('#todayDate').htnh
+            var tomorrow = weekday[d.getDay() + 1];
+            document.getElementById("tomorrowDate").innerHTML = tomorrow;
+            var thirdDay = weekday[d.getDay() + 2];
+            document.getElementById("thirdDayDate").innerHTML = thirdDay;
+
+
+            document.getElementById('contents'); //returns a HTML DOM Object
+            var contents = $('#contents');  //returns a jQuery Object
+            var contents = $('#contents')[0]; //returns a HTML DOM Object
+
+
+            document.all.regTitle.innerHTML = 'Hello World';
+            $("#regTitle").html("Hello World");
         }
+
+        function showToday(weatherData){
+            return  '<h2><strong>Weather</strong>: '+ weatherData.list[0].main.temp_max +'</h2>'
+        };
+
+        function showTomorrow(weatherData){
+            return  '<h2><strong>Weather</strong>: '+ weatherData.list[8].main.temp_max +'</h2>'
+        }
+
+        function showDayThree(weatherData){
+            return  '<h2><strong>Weather</strong>: '+ weatherData.list[16].main.temp_max +'</h2>'
+        }
+
 
 
 

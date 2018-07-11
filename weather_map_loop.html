@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Weather Map</title>
+    <style>
+
+        .jumbotron {
+            text-align: center;
+            padding: 15rem 0;
+            text-shadow: 2px 2px #000;
+        }
+
+        .bg-cover {
+            background-image: url('img/weather_og.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+
+        }
+
+        p > img {
+            position: relative;
+            top: -2px;
+            padding: 0;
+            margin: 0;
+        }
+
+        .description {
+            margin-bottom: 0;
+        }
+
+        </style>
+
+</head>
+<body>
+
+    <div class="jumbotron jumbotron-fluid bg-cover mb-0">
+        <div class="container">
+            <h1 class="text-center display-4"></h1>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row d-flex justify-content-center pt-3">
+            <h3 class="text-primary">Enter City Name</h3>
+        </div>
+        <div class="row form-group form-inline" id="rowDiv">
+            <div class="col-12 d-flex justify-content-center">
+                <input type="text" name="city" id="city" class="form-control" placeholder="City Name">
+                <button id="submitWeather" class="btn btn-primary">Search City</button>
+                <p id="error"></p>
+            </div>
+            <!--<div class="col-12 d-flex justify-content-center"><div id="show"></div></div>-->
+        </div>
+        <div class="col d-flex justify-content-center"><div id="today"></div>
+        <div class="col d-flex justify-content-center"><div id="tomorrow"></div>
+        <div class="col d-flex justify-content-center"><div id="third-day"></div>
+    </div>
+
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+<!-- Optional JavaScript -->
+<script>
+    $(document).ready(function() {
+        "use strict";
+
+        // button click
+        $('#submitWeather').click(function(){
+
+            // data from the input field
+            var city = $('#city').val();
+
+            // once the city is submitted, the input field is cleared to be ready for the next entry
+            if(city != ''){
+
+                //ajax request
+                $.ajax({
+                    url: 'http://api.openweathermap.org/data/2.5/forecast?q=' + city + '&units=imperial' + '&APPID=7f8e3aa0aad113510e0c1eaafd1c17b8',
+                    type: 'GET',
+                    dataType: 'jsonp',
+                    success: function(data){
+
+                        // storing all the entries in a widget to be displayed on the page
+                        var widget = '<p><strong>The forecasted weather for ' + data.city.name + ' is:</strong></p>';
+                        console.log(data);
+
+                        // for loop isolates the array and returns the data for the same time every day
+                        for (var i = 0; i < data.list.length; i += 8) {
+                            // console.log(data.list[i]);
+                            widget += show(data.list[i]); //adding the data from the loop to the widget
+                        }
+
+                        // all the data gathered from above is
+                        $('#show').html(widget);
+
+                        $('#city').val('');
+                        // console.log(data);
+
+                    }
+                });
+
+            } else {
+                $('#error').html('Field cannot be empty');
+            }
+
+        });
+
+
+        function show(day) {
+            return  '<p class="description">Description: ' + day.weather[0].description + '<img src="http://openweathermap.org/img/w/' + day.weather[0].icon +'.png">' + '</p>' +
+                    '<p>Following forecast for: ' + day.dt_txt + '</p>' +
+                    '<p>Today\'s High: ' + day.main.temp_max + '&degF' + '</p>' +
+                    '<p>Today\'s Low: ' + day.main.temp_min + '&degF' + '</p>' +
+                    '<p>Forecasted Humidity: ' + day.main.humidity + '%' + '</p>' +
+                    '<hr>';
+        }
+
+
+
+
+    }); //ends the doc.ready func
+
+</script>
+</body>
+</html>
