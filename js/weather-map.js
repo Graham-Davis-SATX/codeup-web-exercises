@@ -1,6 +1,14 @@
 $(document).ready(function() {
     "use strict";
 
+    var map;
+    function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: -34.397, lng: 150.644},
+            zoom: 8
+        });
+    }
+
     // this is the button that activates the ajax request
     $('#submitWeather').click(function(){
 
@@ -98,15 +106,6 @@ $(document).ready(function() {
             '<div class="col-6"><p><strong>Wind Direction</strong>:<br> '+ degToCompass(weatherData.list[16].wind.deg) + '</p></div>' +
             '<div class="col"><p><strong>Humidity</strong>:<br> '+ weatherData.list[16].main.humidity +' %</p></div>' +
             '<div class="col"><p><strong>Barrometer</strong>:<br> '+ hpaInches(weatherData.list[16].main.pressure) +' inches</p></div>';
-    }
-
-
-    var map;
-    function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-            center: {lat: -34.397, lng: 150.644},
-            zoom: 8
-        });
     }
 
 
