@@ -1,13 +1,7 @@
-$(document).ready(function() {
-    "use strict";
+"use strict";
 
-    var map;
-    function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-            center: {lat: -34.397, lng: 150.644},
-            zoom: 8
-        });
-    }
+
+$(document).ready(function() {
 
     // this is the button that activates the ajax request
     $('#submitWeather').click(function(){
@@ -110,3 +104,4 @@ $(document).ready(function() {
 
 
 }); //ends the doc.ready func
+
