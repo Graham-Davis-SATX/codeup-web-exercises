@@ -41,7 +41,7 @@ $(document).ready(function() {
 
     function dayOfWeek() {
         var d = new Date();
-        var weekday = new Array(7);
+        var weekday = new Array(9);
         weekday[0] = "Sunday";
         weekday[1] = "Monday";
         weekday[2] = "Tuesday";
@@ -49,12 +49,14 @@ $(document).ready(function() {
         weekday[4] = "Thursday";
         weekday[5] = "Friday";
         weekday[6] = "Saturday";
+        weekday[7] = "Sunday";
+        weekday[8] = "Monday";
 
         var today = weekday[d.getDay()];
         $('#todayDate').html(today)
         var tomorrow = weekday[d.getDay() + 1];
         $('#tomorrowDate').html(tomorrow)
-        var thirdDay = weekday[d.getDay() + 2];
+        var thirdDay = weekday[d.getDay() + 3];
         $('#thirdDayDate').html(thirdDay)
     }
 
