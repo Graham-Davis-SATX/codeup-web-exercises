@@ -46,5 +46,5 @@ console.log(userEmail);
 
 
 // Use .reduce to transform the array into an object where the object's keys are ids and the values are objects that represent each user
-const userObj = users.reduce((a, b)=> { a[b.id] = b; return a; }, {});
+const userObj = users.reduce((a, b) => {a[b.id] = b; return a; }, {});
 console.log('userObj', userObj);
