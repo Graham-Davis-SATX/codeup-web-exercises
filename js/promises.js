@@ -55,16 +55,25 @@ wait(3000).then(() => console.log('You\'ll see this after 3 seconds'));
 //
 // request.catch(error => console.log(error));
 
-
-const getLastEvent = (username) => {
+const getEventsAsString = username => {
     const token = '5f27aa9b881266481334130bdc2ab2c4a31a6158';
-    const url = `https://api.github.com/users/${username}/events/public`
-    return fetch(url, {headers: {'Authorization': `token ${token}`}});
-};
-
-getLastEvent('graham-davis-satx').then((data) => {
-    console.log(events[0].created_at);
-});
+    const url = `https://api.github.com/users/${username}/events/public`;
+    return fetch(url, {headers: {'Authorization': `token ${token}`}})
+}
+const getEventAsJson = username => {
+    return getEventsAsString(username).then(data => data.json());
+}
+const getPushEvents = username => {
+    return getEventAsJson(username)
+        .then(events => events.filter(event => event.type === 'PushEvent'));
+}
+const getDateOfLastPushEvent = (username) => {
+    return getPushEvents(username).then(events => events[0].created_at);
+}
+getDateOfLastPushEvent('graham-davis-satx')
+    .then(data => {
+        console.log(data);
+    }).catch(error => console.error(error));
 
 // Aside from the following bonuses, try making alternative versions of AJAX exercises using fetch.
 //
